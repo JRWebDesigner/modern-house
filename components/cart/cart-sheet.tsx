@@ -29,11 +29,11 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
     items.forEach((item, index) => {
       message += `${index + 1}. ${item.name}\n`;
       message += `   Cantidad: ${item.quantity}\n`;
-      message += `   Precio unitario: $${item.price.toFixed(2)}\n`;
-      message += `   Subtotal: $${(item.price * item.quantity).toFixed(2)}\n\n`;
+      message += `   Precio unitario: ${item.price.toFixed(2)}Bs.\n`;
+      message += `   Subtotal: ${(item.price * item.quantity).toFixed(2)}Bs.\n\n`;
     });
     
-    message += `*Total: $${total.toFixed(2)}*\n\n`;
+    message += `*Total: ${total.toFixed(2)}Bs.*\n\n`;
     message += 'Por favor, confirmen disponibilidad y método de pago. ¡Gracias!';
 
     // Encode message for WhatsApp URL
@@ -81,7 +81,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                   
                   <div className="flex-1 min-w-0">
                     <h3 className="font-medium text-sm truncate">{item.name}</h3>
-                    <p className="text-sm text-gray-500">${item.price.toFixed(2)}</p>
+                    <p className="text-sm text-gray-500">{item.price.toFixed(2)}Bs.</p>
                   </div>
                   
                   <div className="flex items-center gap-2">
@@ -119,7 +119,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
             <div className="border-t pt-4 space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-lg font-semibold">Total:</span>
-                <span className="text-lg font-bold">${total.toFixed(2)}</span>
+                <span className="text-lg font-bold">{total.toFixed(2)}Bs.</span>
               </div>
               
               <div className="grid grid-cols-2 gap-2">

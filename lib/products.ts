@@ -1,5 +1,5 @@
 // Datos de productos (podrían venir de una API/database en producción)
-const products = [
+export const products = [
     {
       id: 1,
       name: 'Sofá Moderno Gris',
@@ -11,7 +11,7 @@ const products = [
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: true,
       description: 'Este elegante sofá moderno en color gris es la pieza perfecta para completar tu sala de estar. Fabricado con materiales de alta calidad y un diseño contemporáneo que se adapta a cualquier estilo de decoración. Sus cojines ergonómicos brindan máximo confort para disfrutar en familia.',
       features: [
         'Estructura de madera maciza',
@@ -31,7 +31,7 @@ const products = [
         'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: true,
       description: 'Mesa de centro con diseño minimalista que combina funcionalidad y estilo. Su superficie lisa y limpia es perfecta para colocar libros, decoraciones o para tomar el café de la mañana.',
       features: [
         'Tapa de vidrio templado de 8mm',
@@ -52,7 +52,7 @@ const products = [
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: false,
       description: 'Este elegante sofá moderno en color gris es la pieza perfecta para completar tu sala de estar. Fabricado con materiales de alta calidad y un diseño contemporáneo que se adapta a cualquier estilo de decoración. Sus cojines ergonómicos brindan máximo confort para disfrutar en familia.',
       features: [
         'Estructura de madera maciza',
@@ -72,7 +72,7 @@ const products = [
         'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: false,
       description: 'Mesa de centro con diseño minimalista que combina funcionalidad y estilo. Su superficie lisa y limpia es perfecta para colocar libros, decoraciones o para tomar el café de la mañana.',
       features: [
         'Tapa de vidrio templado de 8mm',
@@ -93,7 +93,7 @@ const products = [
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: true,
       description: 'Este elegante sofá moderno en color gris es la pieza perfecta para completar tu sala de estar. Fabricado con materiales de alta calidad y un diseño contemporáneo que se adapta a cualquier estilo de decoración. Sus cojines ergonómicos brindan máximo confort para disfrutar en familia.',
       features: [
         'Estructura de madera maciza',
@@ -113,7 +113,7 @@ const products = [
         'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: true,
       description: 'Mesa de centro con diseño minimalista que combina funcionalidad y estilo. Su superficie lisa y limpia es perfecta para colocar libros, decoraciones o para tomar el café de la mañana.',
       features: [
         'Tapa de vidrio templado de 8mm',
@@ -134,7 +134,7 @@ const products = [
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: false,
       description: 'Este elegante sofá moderno en color gris es la pieza perfecta para completar tu sala de estar. Fabricado con materiales de alta calidad y un diseño contemporáneo que se adapta a cualquier estilo de decoración. Sus cojines ergonómicos brindan máximo confort para disfrutar en familia.',
       features: [
         'Estructura de madera maciza',
@@ -154,7 +154,7 @@ const products = [
         'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=800',
       ],
       category: 'Sala',
-      isNew: true,
+      isTrend: false,
       description: 'Mesa de centro con diseño minimalista que combina funcionalidad y estilo. Su superficie lisa y limpia es perfecta para colocar libros, decoraciones o para tomar el café de la mañana.',
       features: [
         'Tapa de vidrio templado de 8mm',

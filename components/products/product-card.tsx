@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/components/cart/cart-context';
@@ -65,20 +65,6 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.isNew && (
               <Badge className="bg-black text-white">Nuevo</Badge>
             )}
-          </div>
-
-          {/* Action buttons */}
-          <div className={`absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}>
-            <Button
-              size="sm"
-              variant="secondary"
-              className="rounded-full p-2 h-8 w-8"
-              onClick={(e) => e.preventDefault()}
-            >
-              <Heart className="h-4 w-4" />
-            </Button>
           </div>
 
           {/* Add to cart button */}

@@ -35,7 +35,7 @@ export function AboutSection() {
           
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/img1.jpg"
               alt="Nuestra historia"
               className="rounded-lg shadow-lg"
             />

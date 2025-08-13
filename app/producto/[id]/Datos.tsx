@@ -1,12 +1,13 @@
 'use client';
 
+import Link from 'next/link'
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Heart, Share2 } from 'lucide-react';
+import { ShoppingCart} from 'lucide-react';
 import { useCart } from '@/components/cart/cart-context';
 import { toast } from 'sonner';
 import { getProductById } from '@/lib/products';
@@ -52,7 +53,8 @@ export default function ProductClient({ params }: { params: { id: string } })  {
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+       <Link href="/tienda" className="bg-black text-white p-4 rounded-sm">Volver</Link>
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Images */}
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
@@ -157,14 +159,6 @@ export default function ProductClient({ params }: { params: { id: string } })  {
                 >
                   <ShoppingCart className="h-5 w-5 mr-2" />
                   Agregar al Carrito
-                </Button>
-                
-                <Button variant="outline" size="lg">
-                  <Heart className="h-5 w-5" />
-                </Button>
-                
-                <Button variant="outline" size="lg">
-                  <Share2 className="h-5 w-5" />
                 </Button>
               </div>
             </div>

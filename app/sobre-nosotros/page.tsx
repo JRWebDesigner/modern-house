@@ -5,12 +5,14 @@ export default function SobreNosotrosPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative">
+        <img src='/logo.jpg' alt='modern house bolivia' className='z-10 opacity-40 absolute left-2 top-4 rounded-full w-[160px]' />
+        <img src='/logo.jpg' alt='modern house bolivia' className='z-10 opacity-40 absolute right-2 top-[25%] rounded-full w-[160px]' />
+        <main className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">   
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-black mb-4">Sobre Nosotros</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Conoce la historia detrás de Modern House y nuestro compromiso con el diseño excepcional
+            Conoce la historia detrás de Modern House Bolivia y nuestro compromiso con el diseño excepcional
           </p>
         </div>
 
@@ -20,8 +22,6 @@ export default function SobreNosotrosPage() {
             <div className="space-y-4 text-gray-600">
               <p>
                 Modern House nació en 2010 de la pasión por crear espacios extraordinarios. 
-                Fundada por María González y Carlos Ramírez, dos diseñadores industriales con 
-                una visión compartida: democratizar el acceso al buen diseño.
               </p>
               <p>
                 Lo que comenzó como un pequeño taller en el centro de la ciudad, se ha convertido 
@@ -40,7 +40,7 @@ export default function SobreNosotrosPage() {
           
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/img2.jpg"
               alt="Nuestro taller"
               className="rounded-lg shadow-lg"
             />
@@ -107,8 +107,11 @@ export default function SobreNosotrosPage() {
             </div>
           </div>
         </div>
+        
       </main>
-
+        <img src='/logo.jpg' alt='modern house bolivia' className='z-10 opacity-40 absolute left-2 bottom-[25%] rounded-full w-[160px]' />
+        <img src='/logo.jpg' alt='modern house bolivia' className='z-10 opacity-40 absolute right-2 bottom-4 rounded-full w-[160px]' />
+      </div>
       <Footer />
     </div>
   );

@@ -61,7 +61,7 @@ export function CategoriesSection() {
                   <Button 
                     variant="outline" 
                     asChild
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="border-white bg-white text-black"
                   >
                     <Link href={category.href}>Explorar</Link>
                   </Button>
