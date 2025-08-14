@@ -38,7 +38,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
     // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = '1234567890'; // Replace with actual WhatsApp number
+    const whatsappNumber = '+59173052100'; // Replace with actual WhatsApp number
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     // Open WhatsApp
@@ -50,7 +50,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full sm:max-w-lg">
+      <SheetContent className="w-full sm:max-w-lg h-full">
         <SheetHeader>
           <SheetTitle>Carrito de Compras</SheetTitle>
           <SheetDescription>
@@ -74,7 +74,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
               {items.map((item) => (
                 <div key={item.id} className="flex items-center gap-4 py-4">
                   <img
-                    src={item.images[0]}
+                    src={item.image}
                     alt={item.name}
                     className="w-16 h-16 object-cover rounded-md"
                   />
