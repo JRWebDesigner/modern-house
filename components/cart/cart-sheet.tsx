@@ -74,7 +74,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
               {items.map((item) => (
                 <div key={item.id} className="flex items-center gap-4 py-4">
                   <img
-                    src={item.images[0]}
+                    src={item.image}
                     alt={item.name}
                     className="w-16 h-16 object-cover rounded-md"
                   />
