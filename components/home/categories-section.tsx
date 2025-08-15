@@ -1,34 +1,47 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-
-const categories = [
-  {
-    name: 'Habitación',
-    description: 'Camas, mesitas de noche, cabeceras y más',
-    image: 'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=500',
-    href: '/categoria/habitacion',
-  },
-  {
-    name: 'Comedor',
-    description: 'Mesas, sillas y muebles para comedor',
-    image: 'https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=500',
-    href: '/categoria/comedor',
-  },
-  {
-    name: 'Decoración',
-    description: 'Estanterías, cuadros y accesorios',
-    image: 'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=500',
-    href: '/categoria/decoracion',
-  },
-  {
-    name: 'Iluminación',
-    description: 'Lámparas, luces y sistemas de iluminación',
-    image: 'https://images.pexels.com/photos/1339845/pexels-photo-1339845.jpeg?auto=compress&cs=tinysrgb&w=500',
-    href: '/categoria/iluminacion',
-  },
-];
+import { client, CATEGORIES_QUERY, urlFor } from '@/lib/sanity';
+import { Category } from '@/lib/types';
 
 export function CategoriesSection() {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categoriesData = await client.fetch(CATEGORIES_QUERY);
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-black mb-4">
+              Explora Nuestras Categorías
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Cargando categorías...
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,11 +58,11 @@ export function CategoriesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, index) => (
             <div
-              key={category.name}
+              key={category._id}
               className="relative group overflow-hidden rounded-lg bg-gray-100 h-80"
             >
               <img
-                src={category.image}
+                src={urlFor(category.image).url()}
                 alt={category.name}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -61,9 +74,9 @@ export function CategoriesSection() {
                   <Button 
                     variant="outline" 
                     asChild
-                    className="border-white bg-white text-black"
+                    className="border-white text-white hover:bg-white hover:text-black"
                   >
-                    <Link href={category.href}>Explorar</Link>
+                    <Link href={`/categoria/${category.slug.current}`}>Explorar</Link>
                   </Button>
                 </div>
               </div>

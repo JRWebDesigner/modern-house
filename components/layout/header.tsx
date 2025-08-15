@@ -1,24 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CartSheet } from '@/components/cart/cart-sheet';
 import { useCart } from '@/components/cart/cart-context';
+import { client, CATEGORIES_QUERY } from '@/lib/sanity';
+import { Category } from '@/lib/types';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
   const { items } = useCart();
 
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categoriesData = await client.fetch(CATEGORIES_QUERY);
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const menuItems = [
     { href: '/', label: 'Inicio' },
     { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
-    { href: '/tienda', label: 'Tienda' },
-    { href: '/', label: 'Contacto' },
+    { href: '/contacto', label: 'Contacto' },
   ];
 
   return (
@@ -27,8 +43,8 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-black text-center">
-                Modern House <small> Bolivia</small>
+              <Link href="/" className="text-2xl font-bold text-black">
+                Modern House
               </Link>
             </div>
 
@@ -43,6 +59,39 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Shop Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsShopMenuOpen(true)}
+                onMouseLeave={() => setIsShopMenuOpen(false)}
+              >
+                <button className="flex items-center text-black hover:text-gray-600 transition-colors font-medium">
+                  Tienda
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                
+                {isShopMenuOpen && (
+                  <div className="absolute top-[5px] left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                    <Link
+                      href="/tienda"
+                      className="block px-4 py-2 text-sm text-black hover:bg-gray-100 transition-colors"
+                    >
+                      Todos los Productos
+                    </Link>
+                    <div className="border-t border-gray-200"></div>
+                    {categories.map((category) => (
+                      <Link
+                        key={category._id}
+                        href={`/categoria/${category.slug.current}`}
+                        className="block px-4 py-2 text-sm text-black hover:bg-gray-100 transition-colors"
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </nav>
 
             <div className="flex items-center space-x-4">
@@ -86,6 +135,29 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                
+                {/* Mobile Shop Menu */}
+                <div>
+                  <Link
+                    href="/tienda"
+                    className="block text-black hover:text-gray-600 transition-colors font-medium mb-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Tienda
+                  </Link>
+                  <div className="ml-4 space-y-2">
+                    {categories.map((category) => (
+                      <Link
+                        key={category._id}
+                        href={`/categoria/${category.slug.current}`}
+                        className="block text-sm text-gray-600 hover:text-black transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </nav>
             </div>
           )}

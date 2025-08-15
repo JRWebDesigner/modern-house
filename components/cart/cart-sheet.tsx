@@ -70,7 +70,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
           </div>
         ) : (
           <div className="flex flex-col h-full">
-            <div className="flex-1 overflow-auto py-4">
+            <div className="overflow-auto py-4">
               {items.map((item) => (
                 <div key={item.id} className="flex items-center gap-4 py-4">
                   <img

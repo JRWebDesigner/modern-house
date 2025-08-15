@@ -7,13 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Facebook, Video, Instagram, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     message: '',
   });
@@ -32,14 +31,13 @@ export default function ContactoPage() {
     const message = `Hola! Me pongo en contacto desde la página web.
 
 Nombre: ${formData.name}
-Email: ${formData.email}
 Teléfono: ${formData.phone}
 
 Mensaje:
 ${formData.message}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = '1234567890'; // Replace with actual WhatsApp number
+    const whatsappNumber = '+59173052100'; // Replace with actual WhatsApp number
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
@@ -47,7 +45,6 @@ ${formData.message}`;
     // Reset form
     setFormData({
       name: '',
-      email: '',
       phone: '',
       message: '',
     });
@@ -76,30 +73,30 @@ ${formData.message}`;
               <div className="space-y-6">
                 <Card>
                   <CardContent className="flex items-center space-x-4 p-6">
-                    <MapPin className="h-6 w-6 text-black flex-shrink-0" />
+                    <Video className="h-6 w-6 text-black flex-shrink-0" />
                     <div>
-                      <CardTitle className="text-lg">Dirección</CardTitle>
-                      <p className="text-gray-600">Av. Reforma 123, Col. Centro<br />Ciudad de México, CP 06000</p>
+                      <CardTitle className="text-lg">TikTok</CardTitle>
+                      <a href="https://www.tiktok.com/@modernhousebolivia?_t=ZM-8yu8cFbuuTY&_r=1" target="_blank" className="text-gray-600">@modernhousebolivia</a>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardContent className="flex items-center space-x-4 p-6">
-                    <Phone className="h-6 w-6 text-black flex-shrink-0" />
+                    <Facebook className="h-6 w-6 text-black flex-shrink-0" />
                     <div>
-                      <CardTitle className="text-lg">Teléfono</CardTitle>
-                      <p className="text-gray-600">+52 55 1234 5678</p>
+                      <CardTitle className="text-lg">Facebook</CardTitle>
+                      <a href="https://www.facebook.com/profile.php?id=100091652722823&sk=photos" target="_blank" className="text-gray-600">Modern House Bolivia</a>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardContent className="flex items-center space-x-4 p-6">
-                    <Mail className="h-6 w-6 text-black flex-shrink-0" />
+                    <Instagram className="h-6 w-6 text-black flex-shrink-0" />
                     <div>
-                      <CardTitle className="text-lg">Email</CardTitle>
-                      <p className="text-gray-600">info@modernhouse.com</p>
+                      <CardTitle className="text-lg">Instagram</CardTitle>
+                      <a href="https://www.instagram.com/modernhousebo/" target="_blank" className="text-gray-600">@modernhousebo</a>
                     </div>
                   </CardContent>
                 </Card>
@@ -143,22 +140,6 @@ ${formData.message}`;
                       placeholder="Tu nombre completo"
                     />
                   </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
                       Teléfono
@@ -169,7 +150,7 @@ ${formData.message}`;
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+52 55 1234 5678"
+                      placeholder="+591 66666666"
                     />
                   </div>
 
@@ -194,14 +175,6 @@ ${formData.message}`;
                 </form>
               </CardContent>
             </Card>
-          </div>
-        </div>
-
-        {/* Map Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-black mb-6 text-center">Encuéntranos</h2>
-          <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center">
-            <p className="text-gray-600">Mapa interactivo aquí</p>
           </div>
         </div>
       </main>
