@@ -5,10 +5,10 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Panel Administrativo')
     .items([
-      S.documentTypeListItem('muebles').title('MUebles'),
-      S.documentTypeListItem('category').title('Categoria'),
+      S.documentTypeListItem('mueblesType').title('Muebles'),
+      S.documentTypeListItem('categoryType').title('Categoria'),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['muebles', 'category'].includes(item.getId()!),
+        (item) => item.getId() && !['mueblesType', 'categoryType'].includes(item.getId()!),
       ),
     ])
