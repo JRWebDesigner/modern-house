@@ -74,7 +74,7 @@ export function CategoriesSection() {
                   <Button 
                     variant="outline" 
                     asChild
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="border-white text-black hover:bg-white hover:text-black"
                   >
                     <Link href={`/categoria/${category.slug.current}`}>Explorar</Link>
                   </Button>
