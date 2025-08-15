@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/home/hero-section';
 import { AboutSection } from '@/components/home/about-section';
 import { TrendingSection } from '@/components/home/trending-section';
 import { CategoriesSection } from '@/components/home/categories-section';
-
+//rossy te amo
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
