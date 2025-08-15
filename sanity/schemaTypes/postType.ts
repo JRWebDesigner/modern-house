@@ -51,7 +51,7 @@ export const mueblesType = defineType({
       name: 'category',
       title: 'Categoria',
       type: 'reference',
-      to: [{ type: 'category' }],
+      to: [{ type: 'categoryType' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
