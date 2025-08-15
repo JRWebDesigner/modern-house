@@ -1,6 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-export const postType = defineType({
+export const mueblesType = defineType({
   name: 'mueblesType',
   title: 'Muebles',
   type: 'document',
