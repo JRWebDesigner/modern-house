@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Menu, X, ShoppingCart, ChevronDown, House, Users, Contact, Store } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CartSheet } from '@/components/cart/cart-sheet';
 import { useCart } from '@/components/cart/cart-context';
@@ -32,9 +32,9 @@ export function Header() {
   }, []);
 
   const menuItems = [
-    { href: '/', label: 'Inicio' },
-    { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
-    { href: '/contacto', label: 'Contacto' },
+    { href: '/', label: 'Inicio', icon: House },
+    { href: '/sobre-nosotros', label: 'Sobre Nosotros', icon: Users },
+    { href: '/contacto', label: 'Contacto', icon: Contact },
   ];
 
   return (
@@ -56,7 +56,7 @@ export function Header() {
                   href={item.href}
                   className="text-black hover:text-gray-600 transition-colors font-medium"
                 >
-                  {item.label}
+                  <item.icon className="w-6 h-6" />
                 </Link>
               ))}
               
@@ -67,7 +67,7 @@ export function Header() {
                 onMouseLeave={() => setIsShopMenuOpen(false)}
               >
                 <button className="flex items-center text-black hover:text-gray-600 transition-colors font-medium">
-                  Tienda
+                  <Store className="w-6 h-6" />
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 
